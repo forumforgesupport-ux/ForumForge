@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#C2410C" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>ForumForge</title>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Shown until React starts; React replaces it. If the app fails to load, the script below explains why. -->
+      <div id="ff-boot" style="display:flex;min-height:100vh;align-items:center;justify-content:center;font-family:system-ui,sans-serif;color:#6b7280">
+        Loading ForumForge…
+      </div>
+    </div>
+    <noscript>ForumForge needs JavaScript enabled to run.</noscript>
+    <script>
+      // Turns a blank screen into a readable message if the app's JavaScript can't load
+      // (for example a dev-server compile error or missing packages in node_modules).
+      window.addEventListener('error', function (e) {
+        var t = e.target;
+        var boot = document.getElementById('ff-boot');
+        if (!boot || !t || t.tagName !== 'SCRIPT') return;
+        boot.style.cssText += ';flex-direction:column;gap:8px;padding:24px;text-align:center;color:#dc2626';
+        boot.innerHTML =
+          '<strong style="font-size:18px">ForumForge failed to start</strong>' +
+          '<span style="color:#6b7280">Could not load ' + (t.getAttribute('src') || 'a script') + '.</span>' +
+          '<span style="color:#6b7280">Check the terminal running <code>ionic serve</code> for the error. ' +
+          'If it mentions a missing module, run: <code>rm -rf node_modules package-lock.json &amp;&amp; npm install</code></span>';
+      }, true);
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
